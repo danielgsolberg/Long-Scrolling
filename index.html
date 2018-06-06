@@ -1,0 +1,147 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
+    <!-- <script src="longscrolling.js"></script> -->
+    <link rel="stylesheet" href="longscroll.css">
+    <title>Daniel Solberg's Long Scrolling Page</title>
+    <script>
+    $(window).scroll(function() {
+
+      if ($(this).scrollTop() > 100) {
+
+      $("#sticky").css({
+        "position": "fixed",
+        "top": "0",
+        "opacity": "1",
+        "width": "100%",
+        "z-index": "-3",
+      });
+
+      }
+
+      else {
+      $("#sticky").css({
+      "position": "absolute",
+      "z-index": "-3",
+      });
+      }
+      });
+    </script>
+  </head>
+  <body>
+    <div class="canvas">
+    <!-- Header/Background Image -->
+      <img id="header" src="gswheader.png" alt="test">
+    <div id="ball">
+      <div class="ball-container">
+        <div id="actual_ball" class="tube-container"></div>
+      </div>
+    </div>
+      <img id="sticky" class="sticky" src="oracle-arena-new.png" alt="other test">
+    <!-- Team -->
+      <img src="steph.png" class="align-right slide-in steph" alt="steph">
+      <img src="kdimgtest.png" class="align-left slide-in kd" alt="kd">
+      <img src="klay.png" class="align-right slide-in klay" alt="klay">
+      <img src="draymond.png" class="align-left slide-in draymond" alt="draymond">
+      <img src="andre.png" class="align-right slide-in andre" alt="andre">
+
+      <div class="info-box steph-info">
+        <h1>#30 Stephen Curry</h1>
+        <ul class="info-text">
+          <li><bdi id="subhead">Position: </bdi>Guard</li>
+          <li><bdi id="subhead">Height: </bdi>6 ft. 3 in.</li>
+          <li><bdi id="subhead">Weight: </bdi>190 lbs.</li>
+          <li><bdi id="subhead">College: </bdi>Davidson</li>
+          <li><bdi id="subhead">Warrior Since: </bdi>2009</li>
+        </ul>
+      </div>
+      <div class="info-box kd-info">
+        <h1>#35 Kevin Durant</h1>
+        <ul class="info-text">
+          <li><bdi id="subhead">Position: </bdi>Forward</li>
+          <li><bdi id="subhead">Height: </bdi>6 ft. 9 in.</li>
+          <li><bdi id="subhead">Weight: </bdi>240 lbs.</li>
+          <li><bdi id="subhead">College: </bdi>University of Texas</li>
+          <li><bdi id="subhead">Warrior Since: </bdi>2016</li>
+        </ul>
+      </div>
+      <div class="info-box klay-info">
+        <h1>#11 Klay Thompson</h1>
+        <ul class="info-text">
+          <li><bdi id="subhead">Position: </bdi>Guard</li>
+          <li><bdi id="subhead">Height: </bdi>6 ft. 7 in.</li>
+          <li><bdi id="subhead">Weight: </bdi>215 lbs.</li>
+          <li><bdi id="subhead">College: </bdi>Washington State</li>
+          <li><bdi id="subhead">Warrior Since: </bdi>2011</li>
+        </ul>
+      </div>
+      <div class="info-box draymond-info">
+        <h1>#23 Draymond Green</h1>
+        <ul class="info-text">
+          <li><bdi id="subhead">Position: </bdi>Forward</li>
+          <li><bdi id="subhead">Height: </bdi>6 ft. 7 in.</li>
+          <li><bdi id="subhead">Weight: </bdi>230 lbs.</li>
+          <li><bdi id="subhead">College: </bdi>Michigan State</li>
+          <li><bdi id="subhead">Warrior Since: </bdi>2012</li>
+        </ul>
+      </div>
+      <div class="info-box andre-info">
+        <h1>#9 Andre Iguodala</h1>
+        <ul class="info-text">
+          <li><bdi id="subhead">Position: </bdi>Guard/Forward</li>
+          <li><bdi id="subhead">Height: </bdi>6 ft. 6 in.</li>
+          <li><bdi id="subhead">Weight: </bdi>215 lbs.</li>
+          <li><bdi id="subhead">College: </bdi>University of Arizona</li>
+          <li><bdi id="subhead">Warrior Since: </bdi>2013</li>
+        </ul>
+      </div>
+      <div id="hoop">
+        <div id="backboard">
+        </div>
+      </div>
+      <div id="rim">
+        <div id="rim-img">
+        </div>
+      </div>
+    </div>
+    <script>
+
+    function debounce(func, wait = 20, immediate = true) {
+          var timeout;
+          return function() {
+            var context = this, args = arguments;
+            var later = function() {
+              timeout = null;
+              if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+          };
+        };
+
+    const sliderImages = document.querySelectorAll('.slide-in');
+    function checkSlide() {
+      sliderImages.forEach(sliderImage => {
+        // half way through the image
+        const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
+        // bottom of the image
+        const imageBottom = sliderImage.offsetTop + sliderImage.height;
+        const isHalfShown = slideInAt > sliderImage.offsetTop;
+        const isNotScrolledPast = window.scrollY < imageBottom;
+        if (isHalfShown && isNotScrolledPast) {
+          sliderImage.classList.add('active');
+        } else {
+          sliderImage.classList.remove('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', debounce(checkSlide));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,242 @@
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #FBBF16;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.canvas {
+  height: 10500px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#header {
+  width: 100%;
+  height: auto;
+}
+
+.steph {
+  position: absolute;
+  top: 1000px;
+  height: 100%;
+  left: 600px;
+
+}
+
+.kd {
+  position: absolute;
+  top: 3000px;
+  left: 40px;
+  height: 100%;
+}
+
+.klay {
+  position: absolute;
+  top: 5000px;
+  left: 600px;
+  height: 100%;
+}
+
+.draymond {
+  position: absolute;
+  top: 7000px;
+  left: 0px;
+  height: 100%;
+}
+
+.andre {
+  position: absolute;
+  top: 9000px;
+  left: 850px;
+  height: 100%;
+}
+
+
+  .align-left {
+  float: left;
+}
+.align-right {
+  float:right;
+}
+.slide-in {
+  opacity:0;
+  transition:all .5s;
+}
+
+.align-left.slide-in.kd {
+  transform:translateX(-500px) scale(0.95);
+}
+.align-right.slide-in.steph {
+  transform:translateX(100%) scale(0.95);
+}
+.align-right.slide-in.klay {
+  transform:translateX(100%) scale(0.95);
+}
+.align-left.slide-in.draymond {
+  transform:translateX(-500px) scale(0.95);
+}
+.align-right.slide-in.andre {
+  transform:translateX(100%) scale(0.95);
+}
+
+
+.slide-in.active {
+  opacity:1;
+}
+
+
+.slide-in.steph.active {
+  opacity:1;
+  transform:translateX(0%) scale(1);
+}
+.slide-in.klay.active {
+  opacity:1;
+  transform:translateX(0%) scale(1);
+}
+.slide-in.kd.active {
+  opacity:1;
+  transform:translateX(100px) scale(1);
+}
+.slide-in.draymond.active {
+  opacity:1;
+  transform:translateX(-75px) scale(1);
+}
+.slide-in.andre.active {
+  opacity:1;
+  transform:translateX(-20%) scale(1);
+}
+
+/* ///////// TEST ///////// */
+
+#ball {
+  position: absolute;
+  z-index:-1;
+}
+
+.ball-container {
+  height: 100%;
+  margin: 0px auto;
+  overflow-y: hidden;
+}
+
+#actual_ball {
+  position: fixed;
+  height: 15%;
+  width: 15%;
+  top: 375px;
+  left: 543px;
+  background: url(basketball.png) no-repeat center;
+  background-size: contain;
+  display: block;
+}
+
+.sticky {
+  position: fixed;
+  width: 110%;
+  top: 0;
+  margin-left:-52px;
+  z-index: -2;
+  filter: brightness(55%);
+}
+
+.info-box {
+  background: rgba(253,185,39, .9);
+  border: 8px solid #006BB6;;
+  width: 425px;
+  border-radius: 12px;
+}
+
+h1 {
+  font-family: 'Barlow', sans-serif;
+  color: #26282A;
+  /* color: white; */
+  font-size: 2.5em;
+  font-weight: bolder;
+  text-align: center;
+  margin-top: 20px;
+
+}
+
+#subhead {
+  font-family: 'Barlow', sans-serif;
+  font-weight: bold;
+  color: #26282A;
+}
+
+.info-text {
+  font-family: 'Barlow', sans-serif;
+  color: #26282A;
+  font-size: 18px;
+  line-height: 26px;
+  margin-top: -4px;
+  margin-bottom: 30px;
+}
+
+.andre-info {
+  position: absolute;
+  top: 9175px;
+  left: 150px;
+}
+
+.draymond-info {
+  position: absolute;
+  top: 7200px;
+  left: 650px;
+}
+
+.klay-info {
+  position: absolute;
+  top: 5175px;
+  left: 150px;
+}
+
+.kd-info {
+  position: absolute;
+  top: 3200px;
+  left: 650px;
+}
+
+.steph-info {
+  position: absolute;
+  top: 1225px;
+  left: 150px;
+}
+
+li {
+  display: block;
+  text-decoration: none;
+}
+
+#hoop {
+  position: relative;
+  height: 7%;
+  /* width: 50%; */
+}
+
+#backboard {
+  position:absolute;
+  background:url(backboard.png) no-repeat center;
+  background-size: contain;
+  width:100%;
+  height:100%;
+  top: 9100px;
+  /* left:68%;
+  top:315px; */
+  z-index:-2;
+}
+
+#rim-img {
+  position:absolute;
+  background:url(rim.png) no-repeat center;
+  background-size: contain;
+  width:30%;
+  height:30%;
+  top: 9980px;
+  left: 448px;
+  z-index:1;
+}
